@@ -908,14 +908,6 @@ if __name__ == "__main__":
                         percent_min_n3lo = 100*(min_n3lo-central_n3lo)/central_n3lo
                         print('xs_N3LO  = '+str(central_n3lo)+' +- '+str(error_n3lo)+' (num) pb +'+str(percent_max_n3lo)+'% / '+str(percent_min_n3lo)+'% (7-point scale uncertainty)')
 
-            subprocess.run(["rm",filetest1])
-            subprocess.run(["rm",filetest0])
-            subprocess.run(["rm",filetest2])
-            if variable['type']>8:
-                    subprocess.run(["rm",filetest3])
-                    subprocess.run(["rm",filetest4])
-                    subprocess.run(["rm",filetest5])
-                    subprocess.run(["rm",filetest6])
 
     else:
         if (int(variable['xmuf'])/variable['xmuf']==1):
