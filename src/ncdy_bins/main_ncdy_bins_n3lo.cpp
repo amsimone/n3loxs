@@ -597,9 +597,9 @@ int main(int argc, char **argv) {
       std::cout.precision(18);
 
       real_integrator.devices = {-1}; // only CPUs
-      real_integrator.cputhreads = 1; // only one CPU
+      real_integrator.cputhreads = std::thread::hardware_concurrency(); // only one CPU
       real_integrator.randomgenerator.seed(seed);
-
+      std::cout << "Number of CPU cores: " << std::thread::hardware_concurrency() << std::endl;
       // define variables to store the results of QMC integrations
 
       integrators::result<double> resultdelta;
