@@ -833,16 +833,19 @@ int main(int argc, char **argv) {
 		  functor_PlusConst.k = 2;
 		  functor_PlusInt1.k  = 2;
 		  functor_PlusInt2.k  = 2;
-		  real_integrator.minn = lattice/10;
+		  real_integrator.minn = lattice/5;
 		  resultdelta = real_integrator.integrate(functor_delta);
 		  resultPlusConst = real_integrator.integrate(functor_PlusConst);
-		  real_integrator.minn = lattice;
+		  real_integrator.minn = lattice*5;
 		  resultPlusInt1 = real_integrator.integrate(functor_PlusInt1);
+		  real_integrator.minn = lattice;
 		  resultPlusInt2 = real_integrator.integrate(functor_PlusInt2);
+		  real_integrator.minn = lattice*10;
 		  resultRegNNLO    = real_integrator.integrate(functor_RegNNLO);
 		  dubar_nnlo_result = resultdelta.integral + resultPlusConst.integral + resultPlusInt1.integral + resultPlusInt2.integral + resultRegNNLO.integral;
 		  dubar_nnlo_error  = pow(resultdelta.error,2) + pow(resultPlusConst.error,2) +
 		    pow(resultPlusInt1.error,2) + pow(resultPlusInt2.error,2) + pow(resultRegNNLO.error,2);
+		  real_integrator.minn = 10*lattice;
 		  result_gubar_NNLO   = real_integrator.integrate(functor_gubar_NNLO);
 		  result_gg_NNLO   = real_integrator.integrate(functor_gg_NNLO);
 		  result_cubar_NNLO   = real_integrator.integrate(functor_cubar_NNLO);
